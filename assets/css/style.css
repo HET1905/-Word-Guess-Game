@@ -1,0 +1,15 @@
+h1{
+    font-family: 'Rubik Mono One', sans-serif;
+}
+header{
+    padding-bottom: 30%;
+}
+.mainBoxRow{
+    text-transform: uppercase;
+    border:1px dotted #000;
+}
+span{
+    margin-bottom: 5px;
+    /* border-bottom: 1px solid #000; */
+
+}
