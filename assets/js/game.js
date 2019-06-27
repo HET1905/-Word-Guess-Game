@@ -5,44 +5,43 @@ var txtGuessedLetters = document.getElementById("txtGuessedLetters");
 
 var win = 0;
 var guessRemaining = 10;
-var currentWord = [];
-var gussedLetters = [];
-var words = ["apple", "banana", "mango"];
 
-var resultWord;
+var gussedLetters = [];
+var wordsCollection = ["apple", "banana", "mango","cherry","kiwi"];
+var answerArray = [];
+var remainingLetters;
 
 txtWin.innerHTML = win;
 txtGuessRemaining.innerHTML = guessRemaining;
 
 // Computer guess and printing desh -----------------------
-var compGuess = words[Math.floor(Math.random() * words.length)];
-alert(compGuess);
-resultWord = new Array(compGuess.length + 1).join(' ___ ').split(' ');
-// This print dash
-resultWord.forEach(function(entry){
-    txtCurremtWord.innerHTML += "  " +  entry;
-})
+var compGuess = wordsCollection[Math.floor(Math.random() * wordsCollection.length)];
+remainingLetters = compGuess.length;
+alert(compGuess + "   - lentgth :" + remainingLetters);
+
+for (var i = 0; i < compGuess.length; i++) {
+    answerArray[i] = "_";
+}
+txtCurremtWord.innerHTML = answerArray.join("  ");
 // ---------To track the key pressed------------------------
+
 document.onkeyup = function (event) {
-    var enteredKey = event.key.toLowerCase();
+    if(compGuess.indexOf(event.key)<0){
+        alert("Guess Key : " + event.key)
+        gussedLetters.push(event.key);
+        txtGuessedLetters.innerHTML = gussedLetters;
+        guessRemaining = guessRemaining -1;
+        txtGuessRemaining.innerHTML = guessRemaining;
+    }
+    for(var x = 0; x<compGuess.length; x++){
+        if(compGuess[x]===event.key){
+            answerArray[x] = event.key;
 
+            // alert("Same : " + x + " Key is " +  event.key)
+        }
         
+    }
     
-      if(compGuess.indexOf(enteredKey)>=0){
-            for(var i=0; i<resultWord.length;i++){
-                resultWord.charAt(i) = enteredKey;
-                txtCurremtWord.innerHTML += resultWord[i];
-                currentWord.push(event.key);
-                //txtCurremtWord.innerHTML = currentWord.toString();
-            }
-                
-            }else{
-                gussedLetters.push(enteredKey);
-            txtGuessedLetters.innerHTML = gussedLetters.toString();
-            }
-
-            
-            
-
-
+    txtCurremtWord.innerHTML = answerArray.join(" ");
+    
 }
