@@ -43,27 +43,47 @@ function displayPic(imgName) {
     // var guessImage = document.getElementById("guessImage");
 
    // alert(" Inside fun"+imgName)
-    var imgName = "'" + imgName + "'";
-    //alert("new" + imgName);
+    // var imgName = "'" + imgName + "'";
+    alert("new : " + imgName);
     switch (imgName) {
         case 'apple':
-                document.getElementById("guessImage").src = "../images/apple.jfif";
+                document.getElementById("guessImage").src = "assets/images/apple.jfif";
             break;
         case 'banana':
-                document.getElementById("guessImage").src = "../images/banana.jpg";
+                document.getElementById("guessImage").src = "assets/images/banana.jpg";
             break;
         case 'mango':
-                document.getElementById("guessImage").src = "../images/mango.jpg";
+                document.getElementById("guessImage").src = "assets/images/mango.jpg";
             break;
         case 'cherry':
-                document.getElementById("guessImage").src = "../images/cherry.jpg";
+                document.getElementById("guessImage").src = "assets/images/cherry.jpg";
             break;
         case 'kiwi':
-                document.getElementById("guessImage").src = "../images/kiwi.jpg";
+                document.getElementById("guessImage").src = "assets/images/kiwi.jpg";
             break;
         default:
-                document.getElementById("guessImage").src = "../images/abc.png";
+                document.getElementById("guessImage").src = "assets/images/abc.png";
     }
+
+    // if(imgName==='apple'){
+    //     alert("inside if : apple");
+    //     document.getElementById("guessImage").src = "assets/images/apple.jfif";
+
+    // }else if(imgName==='banana'){``
+    //     alert("inside if : banana");
+    //     document.getElementById("guessImage").src = "assets/images/banana.jpg";
+    // }else if(imgName==='mango'){
+    //     alert("inside if : mango");``
+    //             document.getElementById("guessImage").src = "assets/images/mango.jpg";
+    // }else if(imgName ==='cherry'){
+    //     alert("inside if : cherry");``
+    //             document.getElementById("guessImage").src = "assets/images/cherry.jpg";
+    // }else if(imgName=== 'kiwi'){
+    //     alert("inside if : kiwi");``
+    //             document.getElementById("guessImage").src = "assets/images/kiwi.jpg";
+    // }
+``
+
 }
 
 // ---------To track the key pressed------------------------
