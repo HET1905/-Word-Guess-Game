@@ -44,7 +44,7 @@ function displayPic(imgName) {
 
    // alert(" Inside fun"+imgName)
     // var imgName = "'" + imgName + "'";
-    alert("new : " + imgName);
+   // alert("new : " + imgName);
     switch (imgName) {
         case 'apple':
                 document.getElementById("guessImage").src = "assets/images/apple.jfif";
