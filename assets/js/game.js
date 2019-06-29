@@ -19,12 +19,12 @@ var compGuess = wordsCollection[Math.floor(Math.random() * wordsCollection.lengt
 remainingLetters = compGuess.length;
 // alert(compGuess + "   - lentgth :" + remainingLetters);
 
-function printDash() {
-    for (var i = 0; i < compGuess.length; i++) {
+function printDash(totalDash) {
+    for (var i = 0; i < totalDash.length; i++) {
         answerArray[i] = "_";
     }
 }
-printDash();
+printDash(compGuess);
 txtCurremtWord.innerHTML = answerArray.join("  ");
 
 function functionRestart() {
@@ -35,16 +35,24 @@ function functionRestart() {
     answerArray = [];
     txtCurremtWord.innerHTML = answerArray.join("  ");
     win = 0;
-    printDash();
+   
+}
+function fnPlay(){
+    alert("inside fnplay");
+    functionRestart();
+    var compGuess = wordsCollection[Math.floor(Math.random() * wordsCollection.length)];
+    remainingLetters = compGuess.length;
+    alert(compGuess);
+printDash(compGuess);
+txtCurremtWord.innerHTML = answerArray.join("  ");
+winDiv.innerHTML = "";
+document.getElementById("guessImage").src ="assets/images/abc.png";
+
 
 }
 
 function displayPic(imgName) {
-    // var guessImage = document.getElementById("guessImage");
-
-   // alert(" Inside fun"+imgName)
-    // var imgName = "'" + imgName + "'";
-    alert("new : " + imgName);
+    
     switch (imgName) {
         case 'apple':
                 document.getElementById("guessImage").src = "assets/images/apple.jfif";
@@ -65,32 +73,11 @@ function displayPic(imgName) {
                 document.getElementById("guessImage").src = "assets/images/abc.png";
     }
 
-    // if(imgName==='apple'){
-    //     alert("inside if : apple");
-    //     document.getElementById("guessImage").src = "assets/images/apple.jfif";
-
-    // }else if(imgName==='banana'){``
-    //     alert("inside if : banana");
-    //     document.getElementById("guessImage").src = "assets/images/banana.jpg";
-    // }else if(imgName==='mango'){
-    //     alert("inside if : mango");``
-    //             document.getElementById("guessImage").src = "assets/images/mango.jpg";
-    // }else if(imgName ==='cherry'){
-    //     alert("inside if : cherry");``
-    //             document.getElementById("guessImage").src = "assets/images/cherry.jpg";
-    // }else if(imgName=== 'kiwi'){
-    //     alert("inside if : kiwi");``
-    //             document.getElementById("guessImage").src = "assets/images/kiwi.jpg";
-    // }
-``
-
 }
 
 // ---------To track the key pressed------------------------
 
 document.onkeyup = function (event) {
-    // alert(event.charCode);
-    // alert(event.keyCode)
     if (((event.keyCode > 64 && event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 123)) && (guessRemaining > 0)) {
         // /[^A-Za-z\d]/(/[a-zA-Z]/.test(event.key))
 
@@ -123,6 +110,9 @@ document.onkeyup = function (event) {
                 displayPic(compGuess);
                 functionRestart();
             }
+            if(guessRemaining==0){
+                winDiv.innerHTML = "<h2>You Loose!!!</h2>"
+            }
 
         }
         // txtCurremtWord.innerHTML = answerArray.join(" ");
@@ -130,3 +120,4 @@ document.onkeyup = function (event) {
         alert("Press only alphabets!!!!");
     }
 }
+
