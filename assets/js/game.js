@@ -42,7 +42,7 @@ function fnPlay(){
     functionRestart();
     var compGuess = wordsCollection[Math.floor(Math.random() * wordsCollection.length)];
     remainingLetters = compGuess.length;
-    alert(compGuess);
+  //  alert(compGuess);
 printDash(compGuess);
 txtCurremtWord.innerHTML = answerArray.join("  ");
 winDiv.innerHTML = "";
@@ -53,6 +53,7 @@ document.getElementById("guessImage").src ="assets/images/abc.png";
 
 function displayPic(imgName) {
     
+   
     switch (imgName) {
         case 'apple':
                 document.getElementById("guessImage").src = "assets/images/apple.jfif";
@@ -120,4 +121,3 @@ document.onkeyup = function (event) {
         alert("Press only alphabets!!!!");
     }
 }
-
